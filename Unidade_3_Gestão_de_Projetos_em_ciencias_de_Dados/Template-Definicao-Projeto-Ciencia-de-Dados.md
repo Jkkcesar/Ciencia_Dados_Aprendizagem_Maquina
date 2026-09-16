@@ -10,7 +10,7 @@
 
 | Campo | Preenchimento |
 |---|---|
-| Título provisório do projeto | |
+| Título provisório do projeto |Helping Hands |
 | Curso / disciplina | |
 | Turma | |
 | Equipe | |
