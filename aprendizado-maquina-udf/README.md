@@ -9,7 +9,7 @@ Este repositório registra as atividades de introdução ao Machine Learning e d
 
 ## Identificação do repositório
 
-- Estudante ou equipe: **Eduardo Salgueiro - Julio Cesar**
+- Estudante ou equipe: **Julio César de Aguiar Nunes - Julio Cesar**
 - Turma: **Sistemas de Informação - 2026.2**
 - Repositório: **aprendizado-maquina-udf**
 

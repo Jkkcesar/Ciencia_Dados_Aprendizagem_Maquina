@@ -7,10 +7,10 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro**
+- Estudante ou equipe: **Julio César de Aguiar Nunes**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **30/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
+- Integrantes e contribuições (se em equipe): **Julio César de Aguiar Nunes**
 
 ## Checklist
 
@@ -34,9 +34,9 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 - O que aprendi e consigo explicar: **Aprendi a diferenciar problemas de classificação e regressão na prática, além de entender profundamente que a Acurácia não é a única (nem a melhor) métrica para todos os problemas de negócio. Consigo explicar, por exemplo, por que a Sensibilidade (Recall) é muito mais crítica ao prever a evasão de alunos.**
 - Qual foi minha principal dificuldade: **Compreender a interpretação matemática do R² em problemas de regressão e garantir que a base de teste ficasse estritamente isolada durante a etapa de validação cruzada para evitar o "vazamento de dados" (data leakage).**
-- Qual evidência mostra meu avanço: **O preenchimento completo dos registros de laboratório (Aula 2) e do PBL Integrador, onde consegui aplicar a Árvore de Decisão no Scikit-Learn, extrair as métricas corretamente e fazer uma análise crítica das consequências práticas da matriz de confusão.**
+- Qual evidência mostra meu avanço: **Os registros de laboratório (Aula 2) e do PBL Integrador, junto aos resultados executados no notebook, mostram a aplicação da Árvore de Decisão, a interpretação da matriz de confusão e a discussão das consequências dos erros. Também identifiquei que os valores de regressão do relatório não coincidem com os do notebook, então essa parte precisa ser conferida antes da entrega final.**
 - Como contribuí com a equipe: **Atuei focado na Engenharia de Dados e Modelagem. Fui responsável pela construção do pipeline de dados no Python, treinamento dos modelos de classificação e regressão, extração das métricas (MAE, Recall) e pelo planejamento técnico do protocolo de apoio aos alunos.**
-- O que preciso revisar: **Preciso me aprofundar nos métodos de aprendizado não supervisionado (como algoritmos de agrupamento/clustering) e revisar técnicas mais avançadas de otimização de hiperparâmetros para refinar ainda mais os modelos preditivos.**
+- O que preciso revisar: **Preciso conferir e alinhar as métricas de regressão registradas no relatório e no notebook: o relatório informa MAE de 1,2 e R² de 0,75, enquanto a saída atual do notebook mostra MAE de 28,59 e R² de 0,8774. Também preciso me aprofundar em métodos não supervisionados, como agrupamento (*clustering*), e em técnicas de otimização de hiperparâmetros.**
 - Ferramentas de apoio utilizadas, incluindo IA quando houver, e como verifiquei as respostas: **Utilizei o Google Colab para executar o código em Python, a documentação oficial do Scikit-Learn e a inteligência artificial (Gemini) como assistente de estudos para debater as métricas e ajudar na formatação dos relatórios em Markdown. Todas as respostas foram verificadas cruzando as explicações conceituais com os materiais didáticos das aulas e validando o comportamento do código no notebook de apoio.**
 
 ## Critérios de avaliação

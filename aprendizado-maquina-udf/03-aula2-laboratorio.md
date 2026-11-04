@@ -2,10 +2,10 @@
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro**
+- Estudante ou equipe: **Julio César de Aguiar Nunes**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **29/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
+- Integrantes e contribuições (se em equipe): **Julio César de Aguiar Nunes**
 
 ## Percurso escolhido
 

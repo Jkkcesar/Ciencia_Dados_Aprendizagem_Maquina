@@ -7,10 +7,10 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro**
+- Estudante ou equipe: **Julio César de Aguiar Nunes**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **29/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
+- Integrantes e contribuições (se em equipe): **Julio César de Aguiar Nunes**
 
 ## Situação-problema
 
@@ -51,7 +51,7 @@ Uma biblioteca universitária enfrenta filas em horários específicos e baixa u
 
 | Integrante | Papel | Contribuição |
 | --- | --- | --- |
-| **Eduardo Salgueiro** | **Engenharia de Dados e Modelagem** | **Definição técnica dos atributos, variável alvo, métricas de avaliação do modelo preditivo e estruturação de dados.** |
+| **Julio César de Aguiar Nunes** | **Engenharia de Dados e Modelagem** | **Definição técnica dos atributos, variável alvo, métricas de avaliação do modelo preditivo e estruturação de dados.** |
 | **Julio Cesar** | **Análise de Negócios e Requisitos** | **Formulação das perguntas de negócio, delimitação do problema e restrições de privacidade e ética.** |
 
 ## Conclusão da equipe

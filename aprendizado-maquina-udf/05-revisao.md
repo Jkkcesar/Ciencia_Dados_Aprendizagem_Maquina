@@ -7,10 +7,10 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro**
+- Estudante ou equipe: **Julio César de Aguiar Nunes**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **30/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
+- Integrantes e contribuições (se em equipe): **Julio César de Aguiar Nunes**
 
 Responda com suas palavras e apresente os cálculos quando solicitados. Os números dos exercícios manuais não são os resultados do laboratório.
 
@@ -35,7 +35,7 @@ Responda com suas palavras e apresente os cálculos quando solicitados. Os núme
 
 ## 5. Por que calcular a mediana antes de dividir os dados pode invalidar a avaliação?
 
-**Resposta:** Porque gera "vazamento de dados" (Data Leakage). Se você calcula a mediana com a base toda e usa isso para preencher dados ausentes, informações do conjunto de teste estarão influenciando os dados de treino. O modelo acaba "espiando" o teste, resultando em métricas de avaliação ilusórias. O correto é dividir primeiro e calcular a mediana apenas com o treino.
+**Resposta:** Porque gera vazamento de dados (*data leakage*): a mediana passa a incorporar informação da distribuição do conjunto de teste e influencia a preparação dos dados, deixando a avaliação otimista. O correto é dividir os dados primeiro e ajustar a imputação somente no treino; em validação cruzada, o imputador deve ser ajustado dentro de cada *fold*, por exemplo, em um `Pipeline`.
 
 ## 6. Em uma matriz didática com TN=80, FP=5, FN=10, TP=5, calcule acurácia e sensibilidade. O resultado é suficiente para aprovar o modelo?
 
@@ -63,7 +63,7 @@ Responda com suas palavras e apresente os cálculos quando solicitados. Os núme
 
 ## 10. Por que escolher a profundidade pelo teste prejudica a estimativa final?
 
-**Resposta:** Se usarmos o conjunto de teste iterativamente para ajustar a profundidade (hiperparâmetro), o conjunto de teste deixa de ser inédito e passa a fazer parte do treinamento. O modelo ficará enviesado para se sair bem naqueles dados específicos. Quando ele enfrentar dados novos e reais de produção, a performance será muito pior do que a estimada.
+**Resposta:** Se escolhermos a profundidade com base nos resultados do teste, usamos esse conjunto para tomar decisões sobre o modelo. Mesmo sem ajustar diretamente seus parâmetros com esses exemplos, a seleção fica adaptada ao teste e a estimativa final deixa de ser independente, podendo ficar otimista. A profundidade deve ser escolhida com treino e validação; o teste fica reservado para uma avaliação final.
 
 ## 11. Baixa frequência associada à evasão demonstra causa? Proponha explicação alternativa.
 

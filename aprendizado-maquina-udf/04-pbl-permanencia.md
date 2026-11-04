@@ -7,10 +7,10 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro**
+- Estudante ou equipe: **Julio César de Aguiar Nunes**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **30/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
+- Integrantes e contribuições (se em equipe): **Julio César de Aguiar Nunes**
 
 ## Contexto
 
@@ -83,6 +83,6 @@ Previsões não são certezas. Priorize apoio e revisão humana, sem punições 
 
 | Integrante | Contribuição verificável |
 | --- | --- |
-| **Eduardo Salgueiro** | **Construção do pipeline de dados, modelagem da Árvore de Decisão, extração das métricas (Recall) e planejamento do protocolo de apoio.Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
+| **Julio César de Aguiar Nunes** | **Construção do pipeline de dados, modelagem da Árvore de Decisão, extração das métricas (Recall) e planejamento do protocolo de apoio.Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
 
 [Voltar ao início](README.md).
