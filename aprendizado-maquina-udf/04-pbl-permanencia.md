@@ -84,6 +84,6 @@ Previsões não são certezas. Priorize apoio e revisão humana, sem punições 
 | Integrante | Contribuição verificável |
 | --- | --- |
 | **Eduardo Salgueiro** | **Construção do pipeline de dados, modelagem da Árvore de Decisão, extração das métricas (Recall) e planejamento do protocolo de apoio.** |
-| | **Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
+| **Eduardo Salgueiro**  | **Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
 
 [Voltar ao início](README.md).
