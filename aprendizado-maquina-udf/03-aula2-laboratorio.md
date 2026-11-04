@@ -2,10 +2,10 @@
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro - Julio Cesar**
+- Estudante ou equipe: **Eduardo Salgueiro**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **29/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro - Julio Cesar**
+- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
 
 ## Percurso escolhido
 
