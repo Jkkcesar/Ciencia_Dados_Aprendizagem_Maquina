@@ -5,88 +5,66 @@
 **Entregável:** Documento de definição do projeto
 
 > **Finalidade:** delimitar um problema real e orientar o desenvolvimento do projeto de Ciência de Dados. Preencha todos os campos com informações objetivas, verificáveis e coerentes entre si.
+>
+> **Aviso LGPD:** este documento descreve apenas **estrutura, metadados e regras de tratamento** dos dados. Não contém nomes, CPF/CNPJ, números de guia ou de carteira, CID por paciente, registros de conselho nem qualquer outro dado pessoal ou de saúde real. Exemplos são fictícios.
 
 ## 1. Identificação do projeto
 
 | Campo | Preenchimento |
 |---|---|
-| Título provisório do projeto |Helping Hands |
-| Curso / disciplina |Sistemas de Informação |
-| Turma |Ciência de Dados e Aprendizagem de Máquina |
-| Equipe |Júlio César de Aguiar Nunes, Eduardo Salgueiro Evangelista|
-| Integrantes e funções iniciais | |
-| Professor(a) |Gabriel |
-| Data de elaboração |16-09-2026 |
-| Versão do documento |V01 |
+| Título provisório do projeto | Reembolso em Dados: onde agir para reduzir o reembolso, fortalecer o uso da rede credenciada e diminuir o custo assistencial |
+| Curso / disciplina | Sistemas de Informação |
+| Turma | Ciência de Dados e Aprendizagem de Máquina |
+| Equipe | Júlio César de Aguiar Nunes/ Eduardo Salgueiro Evangelista |
+| Integrantes e funções iniciais | Júlio César: engenharia de dados (SQL/ETL), governança e LGPD, análise, modelagem e visualização. |
+| Professor(a) | Gabriel |
+| Data de elaboração | 16-09-2026 |
+| Versão do documento | V04 |
 
 ## 2. Visão geral
 
 ### 2.1 Resumo do projeto
 
-O "Helping Hands" é uma plataforma WEB resposiva que conecta pessoas interessadas em realizar o descarte consciente a instituições de caridade. Seu objetivo principal é otimizar a logística de doações, garantindo que itens sem uso cheguem de forma rápida e segura a quem precisa.
+A operadora, uma **autogestão em saúde**, usará **os próprios dados de reembolso assistencial** para descobrir **onde agir**: em quais **estados e municípios**, em quais **procedimentos e especialidades** e com quais **prestadores** o reembolso é mais utilizado. A hipótese de trabalho é que parte desse reembolso decorre de **lacunas ou de baixa utilização da rede credenciada**.
 
-Criado com tecnologias modernas e fundamentado na economia circular, o projeto soluciona a falta de informação e as dificuldades logísticas enfrentadas pelos doadores. Assim, a iniciativa reduz o desperdício, evita o descarte irregular de materiais úteis e fortalece o terceiro setor por meio de uma ponte digital transparente e eficiente.
-**Preenchimento:**
+Com esse diagnóstico, a gestão poderá priorizar ações como credenciar ou reforçar a rede onde há demanda reembolsada, orientar beneficiários sobre a rede disponível e rever fluxos. O resultado esperado é **reduzir o reembolso, tornar constante o uso da rede credenciada e diminuir o custo assistencial** associado à **medida reparadora** prevista na **RN nº 566/2022 da ANS**, que trata da garantia de atendimento e do reembolso quando o atendimento não é garantido na rede.
 
-________________________________________________________________________________
-
-________________________________________________________________________________
+O projeto **não busca negar nem dificultar reembolsos devidos**. Busca eliminar as causas que levam o beneficiário a precisar deles. Os dados são tratados de forma **minimizada e pseudonimizada**, com saídas agregadas e decisão sempre humana.
 
 ### 2.2 Declaração do projeto em uma frase
 
 > Nosso projeto utilizará **[dados ou fonte]** para compreender/prever **[fenômeno]**, apoiando **[público ou organização]** na decisão de **[decisão ou ação]**.
 
 **Versão da equipe:**
-> Nosso projeto utilizará uma **[Plataforma WEB responsiva]** para otimizar e gerenciar a **[intermediação e a logística de doações]**, apoiando **[pessoas físicas e instituições de caridade]** na decisão de **[realizar o descarte consciente e destinar itens reutilizáveis de forma rápida e segura a quem precisa]**
-________________________________________________________________________________
+> Nosso projeto utilizará **os dados internos de reembolso assistencial e de rede credenciada da própria operadora** para compreender **onde (UF e município), em quais procedimentos, especialidades e prestadores o reembolso se concentra**, apoiando **a gestão da autogestão em saúde** na decisão de **ampliar e direcionar a rede credenciada e as ações de orientação, reduzindo o reembolso e o custo assistencial da medida reparadora (RN 566/2022 da ANS)**.
 
 ## 3. Contexto e definição do problema
 
 ### 3.1 Contexto
 
-Descreva a situação atual, o ambiente em que o problema ocorre e as evidências iniciais que demonstram sua relevância.
+- **Onde o problema ocorre?** No processo de atendimento e reembolso da operadora, na fronteira entre a rede credenciada e o atendimento fora dela, em territórios (UF e município), procedimentos, especialidades e prestadores específicos.
+- **Quem é afetado?** A operadora, pelo custo assistencial; os beneficiários, que precisam pagar e solicitar reembolso, esperar decisão e, às vezes, buscar atendimento longe; e a rede credenciada, subutilizada em alguns locais.
+- **Quais sinais, dados ou relatos indicam sua existência?** A base registra, por item pago, o valor, o tipo e a forma de reembolso, a especialidade, o procedimento, a UF e a cidade de atendimento, o prestador executante e o motivo da decisão. A operadora identifica reembolsos recorrentes em certos locais e serviços, mas não tem uma leitura sistemática de **onde a rede falha** ou **onde é subutilizada**.
+- **Por que é importante investigá-lo agora?** O reembolso como medida reparadora tem custo mais alto e menos previsível do que o atendimento na rede, além de gerar carga operacional. A RN 566/2022 reforça a obrigação de garantir atendimento, e os dados necessários já estão estruturados (`stg_prata` e `prata`).
 
-- Onde o problema ocorre?
-- Quem é afetado?
-- Quais sinais, dados ou relatos indicam sua existência?
-- Por que é importante investigá-lo agora?
-
-**Preenchimento:**
-3.1 Contexto
-*  Onde o problema ocorre?
-Na sociedade contemporânea, com impacto direto no cenário brasileiro de gestão de resíduos sólidos e de redistribuição de bens de consumo.  
-*  Quem é afetado?
-Pessoas físicas que desejam realizar o descarte consciente de itens que ainda possuem valor de uso (doadores).  Instituições de caridade formalizadas, que dependem de fluxos constantes de mantimentos e doações para manterem suas operações e o apoio ao terceiro setor.  
-*  Quais sinais, dados ou relatos indicam sua existência?
-A geração de 80,95 milhões de toneladas de resíduos sólidos urbanos no Brasil no ano de 2023, sendo que 69,3 milhões de toneladas acabaram descartadas sem passar por um processo de reuso devido à falta de canais de redistribuição (segundo dados de O Globo, 2024).
-A dificuldade logística relatada por potenciais doadores, que enfrentam barreiras como a falta de transporte e o desconhecimento sobre quais instituições aceitam determinados materiais.
-A inadequação das plataformas atuais de mercado (como OLX e Marketplace do Facebook), que têm foco em comércio ou doações informais entre indivíduos e não possuem o foco assistencialista necessário para apoiar entidades formalizadas.
-*  Por que é importante investigá-lo agora?A gestão de resíduos e a necessidade de reaproveitamento tornaram-se desafios críticos tanto para a preservação ambiental quanto para a qualidade de vida.
-O Brasil vive um momento de fortalecimento da cultura de solidariedade, evidenciado pelo salto do país da 89ª posição (edição de 2023) para a 48ª posição (edição de 2025) no ranking global de doações World Giving Index (WGI).
-É o momento ideal para utilizar o avanço tecnológico (aplicativos móveis e acessibilidade digital) para transformar a disposição solidária da população em uma prática estruturada, reduzindo o desperdício e otimizando os recursos escassos das instituições.
-________________________________________________________________________________
-
-________________________________________________________________________________
+> **Nota regulatória:** a descrição da RN 566/2022 deve ser confirmada com as áreas de regulação e jurídica da operadora, inclusive quanto às situações em que o reembolso é obrigatório (medida reparadora) e às em que decorre de livre escolha prevista em contrato.
 
 ### 3.2 Problema central
-
-Formule o problema de maneira específica, sem antecipar uma solução.
 
 > **Modelo:** [Público/organização] enfrenta [problema observável] no contexto de [situação], produzindo [consequência ou impacto].
 
 **Problema definido:**
-3.2 Problema central
 
-> **[Pessoas físicas interessadas em doar e instituições de caridade]** enfrentam [dificuldades logísticas, como a falta de transporte, e a falta de informação sobre quais entidades aceitam determinados itens] no contexto da **[gestão de resíduos sólidos e do reaproveitamento de bens de consumo]**, produzindo **[o descarte irregular e sem reuso de materiais que ainda possuem valor de uso, gerando desperdício e privando o terceiro setor de mantimentos essenciais]**.
-________________________________________________________________________________
+> **A operadora de autogestão** enfrenta **reembolsos recorrentes concentrados em determinados municípios, estados, procedimentos, especialidades e prestadores, sem diagnóstico sistemático de quanto disso decorre de lacunas ou subutilização da rede credenciada** no contexto **da garantia de atendimento e da medida reparadora prevista na RN 566/2022 da ANS**, produzindo **custo assistencial maior e menos previsível, carga operacional e experiência pior para o beneficiário**.
 
 ### 3.3 Evidências iniciais
 
 | Evidência | Fonte | O que ela indica? | Confiabilidade / limitação |
 | :--- | :--- | :--- | :--- |
-| **1.** A geração de resíduos sólidos no Brasil atingiu 80,95 milhões de toneladas em 2023, sendo que 69,3 milhões de toneladas foram descartadas sem passar por processo de reuso devido à falta de canais de redistribuição. | O GLOBO. Relatório aponta crescimento da reciclagem de resíduos no Brasil, mas persistência de lixões preocupa. 10 dez. 2024. | Indica que há um enorme volume de desperdício e uma falha logística ou ausência de meios eficientes para conectar os itens descartados a um novo ciclo de utilidade. | **Confiabilidade alta**, por se tratar de um grande veículo de comunicação. **Limitação:** O dado é macro e reflete resíduos sólidos em geral, não detalhando exatamente qual fatia desse montante corresponde a itens residenciais em bom estado que poderiam ser doados. |
-| **2.** O Terceiro Setor movimenta anualmente cerca de US$ 10 bilhões (equivalente a 1,5% do PIB) e gera aproximadamente 2,5% dos postos de trabalho no país. | RAMOS, G. C. Terceiro setor: a construção de uma economia da solidariedade. Revista Ibero-Americana de Estratégia, São Paulo, v. 2, n. 1, p. 105-112, 2003. | Evidencia a forte relevância social e econômica do terceiro setor e das instituições de caridade no Brasil, justificando a necessidade de ferramentas tecnológicas para apoiar e fortalecer essas entidades. | **Confiabilidade alta** no viés acadêmico. **Limitação:** Os dados são do ano de 2003, o que significa que os números atuais do impacto econômico do setor podem estar desatualizados em relação ao cenário de 2026. |
-| **3.** O Brasil saltou da 89ª posição no ano de 2023 para a 48ª posição em 2025 no ranking mundial de solidariedade, mostrando um crescimento contínuo na cultura de doações. | CHARITIES AID FOUNDATION. CAF World Giving Index 2025. Kent: CAF, 2025.<br><br>IDIS – Instituto para o Desenvolvimento do Investimento Social. Pesquisa Doação Brasil. São Paulo: IDIS, 2024. | Indica que a sociedade civil brasileira está cada vez mais disposta a ser solidária e que essa cultura de doação está se tornando mais estruturada, em grande parte facilitada por ferramentas digitais. | **Confiabilidade alta**, por ser o principal índice global do setor (WGI). **Limitação:** O índice foca em pilares mais amplos (doação de dinheiro, ajuda a estranhos e voluntariado), e não mede exclusivamente a doação de bens materiais e itens usados. |
+| **1.** A base permite situar cada item reembolsado por UF, cidade, especialidade, procedimento e prestador. | `stg_prata.fato_reembolso_itens_pagos` (`UF`, `UFATENDIMENTO`, `CIDADEUFATENDIMENTO`, `NROSERVICOPAGO`, `DESSERVICOPAGO`, `NMECONTRATADOEXECUTANTE`). | É possível identificar concentrações de reembolso por território, serviço e prestador. | **Limitação:** a cidade é a do atendimento, que pode diferir da residência do beneficiário. |
+| **2.** A base traz tipo e forma de reembolso e motivo da decisão. | `SkTipoReembolso`, `NMEFORMAREEMBOLSO`, `dim_tipo_reembolso`, `dim_motivo_decisao_reembolso`. | Pode distinguir o reembolso por medida reparadora de outras formas, se as dimensões permitirem. | **A validar** com regulação: o mapeamento entre tipo/motivo e a RN 566/2022. |
+| **3.** A base registra valores solicitados e pagos por guia e por item. | `VLRSOLICITADOGUIA`, `VLRTOTALPAGOGUIA`, `VLRPAGOITEM`, `QTDSERVICO`. | Permite dimensionar o custo do reembolso e, comparado ao custo na rede, o ganho potencial. | **Limitação:** valores de guia se repetem entre itens. O custo na rede depende de outra base (seção 8). |
+| **4.** Prazo de finalização e indicador de 30 dias. | `PRAZOFINALIZACAO`, `FINALIZADOPRAZO30DIAS`. | Mede a carga e a experiência do processo de reembolso. | `DTAFINALIZACAO` tem valores-padrão inválidos, tratados como nulos. |
 
 ## 4. Público-alvo e partes interessadas
 
@@ -94,206 +72,272 @@ ________________________________________________________________________________
 
 | Aspecto | Descrição |
 | :--- | :--- |
-| **Quem são os usuários ou beneficiários?** | O sistema atende principalmente a dois perfis: pessoas físicas que desejam realizar descartes conscientes (doadores) e instituições de caridade cadastradas e verificadas (donatários). |
-| **Quais necessidades possuem?** | Os doadores necessitam de informações claras sobre quais instituições aceitam determinados itens e de facilidade logística para a entrega. As instituições necessitam de um fluxo constante de mantimentos e de um canal para divulgar suas necessidades específicas (móveis, roupas, alimentos) e gerenciar as doações recebidas de forma organizada. |
-| **Como são afetados pelo problema?** | Os doadores enfrentam barreiras (como falta de transporte ou desconhecimento) que resultam no descarte irregular de materiais que ainda possuem valor de uso. As instituições sofrem com a falta de recursos, pois as plataformas atuais de mercado (como OLX) não possuem o foco assistencialista necessário para suprir suas demandas. |
-| **Que decisão ou ação poderão tomar com os resultados?** | Os doadores poderão cadastrar itens para doação, buscar necessidades de ONGs, agendar entregas e confirmar envios de forma rastreável. As instituições poderão cadastrar suas necessidades, manifestar interesse em donativos disponíveis, agendar o recebimento e confirmar a conclusão da doação com transparência. |
+| **Quem são os usuários ou beneficiários?** | Diretoria e gerências da operadora; áreas de rede/credenciamento, reembolso, regulação, controle de custos e financeiro/atuária. |
+| **Quais necessidades possuem?** | Saber onde a rede precisa ser ampliada ou mais utilizada, quais serviços e prestadores concentram o reembolso e quanto custo pode ser evitado. |
+| **Como são afetados pelo problema?** | Custo maior e menos previsível, volume de análise de reembolsos e risco regulatório por falhas na garantia de atendimento. |
+| **Que decisão ou ação poderão tomar com os resultados?** | Priorizar credenciamento e negociação por município, UF, especialidade e procedimento; orientar beneficiários e a rede; revisar fluxos de encaminhamento; e acompanhar o efeito das ações sobre o reembolso e o custo. |
 
 ### 4.2 Partes interessadas
 
 | Parte interessada | Interesse no projeto | Influência | Forma de envolvimento |
 | :--- | :--- | :--- | :--- |
-| **Doadores (Pessoas físicas)** | Encontrar um canal seguro para realizar o descarte consciente e destinar itens sem uso a quem realmente precisa de forma rápida. | Alta | Realização de cadastro de donativos no aplicativo, busca e filtro de instituições/necessidades, agendamento de entregas e confirmação de envio. |
-| **Instituições de caridade (ONGs)** | Manter um fluxo constante de mantimentos para suas operações, divulgando suas demandas críticas de forma organizada e validada. | Alta | Cadastro e gerenciamento de necessidades no painel, manifestação de interesse em donativos, acompanhamento da logística no chat e confirmação de recebimento. |
-| **Administradores da plataforma** | Assegurar a governança, a moderação e a segurança do ecossistema, garantindo que apenas instituições e usuários adequados permaneçam ativos. | Alta | Aprovação e validação de cadastros institucionais, gestão e controle de usuários (banimentos, suspensões), acompanhamento de alertas e suporte via chat administrativo. |
+| Diretoria / gestão | Reduzir custo assistencial e risco regulatório | Alta | Patrocínio e decisão |
+| Rede credenciada / credenciamento | Direcionar expansão e relacionamento com prestadores | Alta | Validação do diagnóstico e execução das ações |
+| Área de reembolso | Reduzir volume e retrabalho | Alta | Validação das regras e do dicionário |
+| Regulação / jurídico | Conformidade com a RN 566/2022 e demais normas da ANS | Alta | Interpretação da norma e validação do enquadramento |
+| Financeiro / atuária / controle de custos | Medir custo e economia potencial | Alta | Dados de custo na rede e validação dos cálculos |
+| DPO, TI e segurança | Conformidade com a LGPD | Alta | Aprovação da base e do acesso |
+| Equipe de BI | Consumo dos indicadores | Média | Integração com o Power BI |
+| Orientação acadêmica | Rigor metodológico | Média | Orientação e avaliação |
+| Beneficiários e prestadores (indireto) | Acesso à rede e processo justo | Indireta | Beneficiados pelas melhorias, sem exposição individual |
 
 ## 5. Objetivos do projeto
 
-### 5.1 Objetivo Geral
-Desenvolver uma plataforma digital composta por aplicativo e site que automatize e gerencie o processo de intermediação entre doadores e instituições de caridade, otimizando a destinação de itens reutilizáveis através da tecnologia[cite: 1].
-
-### 5.2 Objetivos Específicos
-*   Mapear e cadastrar instituições de caridade, categorizando suas necessidades específicas por tipo de material (móveis, roupas, alimentos).
-*   Implementar um sistema de geolocalização para conectar doadores às instituições mais próximas, reduzindo custos e tempo de deslocamento.
-*   Criar um painel administrativo para as instituições gerenciarem as ofertas de doações recebidas de forma organizada e eficiente.
-
 ### 5.1 Objetivo geral
 
-Escreva um objetivo que indique o que será analisado, para qual finalidade e em qual contexto. Inicie com um verbo no infinitivo.
-
-**Objetivo geral:**
-Desenvolver uma plataforma digital, composta por aplicativo e site, para automatizar e gerenciar o processo de intermediação entre doadores e instituições de caridade, com a finalidade de otimizar a destinação de itens reutilizáveis e promover o descarte consciente no contexto de gestão de resíduos sólidos e apoio ao terceiro setor.
-________________________________________________________________________________
+Identificar, a partir dos dados internos de reembolso e de rede credenciada, **onde a operadora pode agir** (estados, municípios, procedimentos, especialidades e prestadores) para **reduzir o reembolso, aumentar o uso constante da rede credenciada e diminuir o custo assistencial da medida reparadora** prevista na RN 566/2022 da ANS, apoiando a decisão da gestão em conformidade com a LGPD.
 
 ### 5.2 Objetivos específicos
 
-Defina de três a cinco objetivos mensuráveis e compatíveis com o prazo do projeto.
-
 | Nº | Objetivo específico | Evidência de conclusão |
 |---:| :--- | :--- |
-| **1** | Mapear e cadastrar instituições de caridade, categorizando suas necessidades específicas por tipo de material (móveis, roupas, alimentos). | Presença do módulo de cadastro e validação de instituições pela administração, integrado à funcionalidade "Cadastrar necessidade" onde a instituição define a categoria e prioridade do item. |
-| **2** | Implementar um sistema de geolocalização para conectar doadores às instituições mais próximas, reduzindo custos e tempo de deslocamento. | Armazenamento de dados de endereço, latitude e longitude no banco de dados, além da disponibilização do botão "Abrir no Google Maps" na tela de detalhes da instituição/necessidade. |
-| **3** | Criar um painel administrativo para as instituições gerenciarem as ofertas de doações recebidas de forma organizada e eficiente. | Desenvolvimento e funcionamento da tela "Painel da Instituição", que apresenta indicadores de doações disponíveis, controle de processos em andamento, gestão de agendamentos e histórico de processos. |
+| **1** | Construir uma base analítica tratada e pseudonimizada, com dicionário de dados e classificação LGPD, e classificar o reembolso (medida reparadora, livre escolha, outros). | Script SQL versionado, regra de classificação validada pela regulação e relatório de qualidade aprovado pelo DPO. |
+| **2** | Mapear onde o reembolso se concentra: por UF, município, especialidade, procedimento e prestador (curva ABC e Pareto). | Painel e relatório com ranking agregado e supressão de pequenos grupos. |
+| **3** | Estimar a **lacuna de rede**: comparar reembolso com a oferta e a utilização da rede credenciada por território e especialidade. | Indicador de lacuna por município × especialidade, validado com a área de rede. |
+| **4** | Estimar o **custo evitável**: diferença entre o custo do reembolso e o custo do mesmo serviço na rede. | Estimativa por segmento, com premissas documentadas e validadas com o financeiro. |
+| **5** | Priorizar ações (credenciamento, negociação, orientação e fluxo) por impacto e viabilidade. | Portfólio priorizado (matriz impacto × esforço) aprovado pela gestão. |
+| **6** | Definir indicadores de acompanhamento e, se couber, modelos de apoio (previsão de demanda de reembolso e anomalias). | Painel de acompanhamento e *model card*, com desempenho superior a uma linha de base. |
 
 ### 5.3 Verificação dos objetivos
 
 Marque após revisar:
 
-[x] São específicos e escritos com clareza.
-
-[x] Podem ser verificados por meio de entregáveis ou métricas.
-
-[x] São viáveis com os dados, recursos e tempo disponíveis.
-
-[x] Estão diretamente relacionados ao problema central.
-
-[x] Consideram os usuários e a decisão que será apoiada.
+- [ ] São específicos e escritos com clareza.
+- [ ] Podem ser verificados por meio de entregáveis ou métricas.
+- [ ] São viáveis com os dados, recursos e tempo disponíveis.
+- [ ] Estão diretamente relacionados ao problema central.
+- [ ] Consideram os usuários e a decisão que será apoiada.
 
 ## 6. Perguntas de negócio
 
-As perguntas de negócio orientam a coleta, a análise e a comunicação dos resultados. Evite perguntas que possam ser respondidas apenas com “sim” ou “não”.
-
 | Nº | Pergunta de negócio | Decisão apoiada | Dados necessários | Análise ou indicador possível |
 |---:| :--- | :--- | :--- | :--- |
-| **1** | Como o volume e as categorias de donativos ofertados se alinham com as necessidades de prioridade urgente das instituições? | Direcionar campanhas de incentivo para arrecadar itens específicos que estão em falta e otimizar o atendimento às ONGs. | Tabelas `donativos` (id_categoria, status) e `necessidades_instituicao` (id_categoria, prioridade). | Taxa de cobertura de necessidades (oferta vs. demanda por categoria); percentual de necessidades urgentes atendidas. |
-| **2** | Qual é a taxa de sucesso no ciclo de doação e em qual etapa ocorrem mais cancelamentos (interesse, agendamento ou entrega)? | Identificar gargalos logísticos ou de comunicação para melhorar a usabilidade, os alertas e as regras de agendamento do aplicativo. | Tabelas `agendamentos_doacao` (status, doador_confirmou_entrega, instituicao_confirmou_recebimento) e `historico_acoes`. | Funil de conversão da doação (Publicado > Interesse > Agendado > Entregue); índice de evasão por etapa. |
-| **3** | Qual é o tempo médio que um item leva desde a sua publicação pelo doador até a confirmação de recebimento pela instituição? | Avaliar a agilidade da plataforma e a necessidade de implementar melhorias nos alertas/push notifications para acelerar as retiradas. | Tabelas `donativos` (criado_em) e `agendamentos_doacao` (instituicao_confirmou_em). | *Lead time* da doação (tempo médio em dias/horas do ciclo completo de repasse). |
-| **4** | Como a distribuição geográfica dos itens ofertados se relaciona com a localização das instituições validadas? | Focar a captação de novos doadores ou o cadastramento de novas ONGs em regiões com déficit de atendimento ou excesso de oferta não escoada. | Tabelas `enderecos` (bairro, cidade, latitude, longitude), `doadores` e `instituicoes`. | Mapa de calor (*heatmap*) cruzando locais de retirada com endereços de ONGs; distância média percorrida por doação. |
-| **5** | Qual é a frequência de retorno dos doadores para a realização de novas doações após o primeiro repasse concluído? | Medir a fidelização do usuário para aplicar estratégias de retenção, como o uso dos cupons de incentivo mencionados no escopo do projeto. | Tabelas `doadores` (id_doador) e `donativos` (criado_em, id_doador). | Taxa de recorrência de doadores; média de itens doados por usuário ativo em um semestre. |
+| **1** | Em quais estados e municípios o reembolso mais se concentra, em volume e em valor? | Priorizar territórios para ação na rede. | `UF`, `UFATENDIMENTO`, `CIDADEUFATENDIMENTO`, `VLRPAGOITEM`, datas. | Ranking, mapa e tendência por território. |
+| **2** | Quais procedimentos e especialidades concentram o reembolso em cada território? | Definir quais especialidades e serviços credenciar ou reforçar. | Serviço, `especialidade`, `NMETPOITEM`, valores. | Curva ABC e Pareto por território. |
+| **3** | Quais prestadores mais recebem reembolso e em que contexto (território, especialidade)? | Avaliar credenciamento ou negociação com prestadores recorrentes. | Prestador (pseudonimizado), território, especialidade, valores. | Ranking de prestadores e concentração (por exemplo, índice de Herfindahl). |
+| **4** | Quanto do reembolso ocorre onde já existe rede credenciada para o mesmo serviço, e quanto ocorre onde não existe? | Distinguir problema de **acesso** (lacuna) de problema de **utilização** (orientação e fluxo). | Reembolso e cadastro da rede (município, especialidade). | Indicador de lacuna e de subutilização. |
+| **5** | Qual é a parcela do reembolso classificada como medida reparadora e qual é o seu custo? | Dimensionar o impacto da RN 566/2022. | Tipo e forma de reembolso, motivo, valores. | Participação e custo por tipo. |
+| **6** | Quanto o custo assistencial poderia diminuir se parte desse reembolso fosse atendida na rede? | Calcular o retorno das ações e priorizar. | Valor reembolsado e custo médio na rede por serviço. | Custo evitável estimado e cenários. |
+| **7** | Que ações têm melhor relação entre impacto e esforço? | Compor o portfólio de iniciativas. | Resultados das perguntas 1 a 6. | Matriz impacto × esforço. |
+| **8** | Depois das ações, o reembolso diminuiu e o uso da rede aumentou de forma sustentada? | Acompanhamento e ajuste. | Séries mensais de reembolso e de uso da rede. | Série temporal e comparação antes e depois por território. |
 
 ## 7. Hipóteses iniciais
 
-Registre suposições que serão investigadas, sem apresentá-las como conclusões.
+Hipóteses são ponto de partida, e as análises podem gerar novas.
 
 | Hipótese | Como poderá ser testada? | Resultado que a refutaria? |
 |---|---|---|
-| H1.A falta de informação gera um descompasso entre os tipos de bens doados pela população e as reais necessidades urgentes das ONGs. |Cruzando o volume de itens doados por categoria com o nível de prioridade informado pelas instituições. |Comprovar que a oferta espontânea de doações coincide com as demandas urgentes das entidades. |
-| H2.A limitação de transporte é a principal barreira logística para a conclusão do repasse de itens em bom estado. |Comparando a taxa de cancelamento entre doações que exigem retirada no local e as entregas realizadas pelo doador. |Identificar que o índice de desistência é igual ou menor quando a retirada depende de transporte da instituição. |
-| H3.A maior distância geográfica entre doador e instituição aumenta o tempo de repasse e o risco de descarte irregular. |Correlacionando a distância física (bairro/cidade) entre as partes com o tempo total (lead time) de conclusão do repasse. |Demonstrar que o tempo de conclusão do repasse é independente da distância física. |
+| H1. Poucos municípios e especialidades concentram a maior parte do valor reembolsado. | Curva ABC e Pareto por território e especialidade. | Distribuição uniforme, sem concentração útil para priorização. |
+| H2. Municípios com pouca ou nenhuma rede credenciada na especialidade têm mais reembolso por beneficiário (efeito da lacuna). | Correlação e regressão entre oferta de rede e reembolso, por município × especialidade. | Ausência de relação entre oferta e reembolso. |
+| H3. Parte relevante do reembolso ocorre onde **há** rede credenciada, o que indica subutilização ou falha de encaminhamento. | Cruzamento de reembolso com a existência de rede para o mesmo serviço e território. | Quase todo o reembolso ocorre onde não há rede. |
+| H4. Poucos prestadores concentram o reembolso e são candidatos a credenciamento ou negociação. | Ranking e índice de concentração por especialidade e território. | Reembolso pulverizado entre muitos prestadores. |
+| H5. O custo do reembolso por serviço é maior do que o custo médio na rede. | Comparação por serviço entre o valor reembolsado e o custo médio na rede. | Custos equivalentes ou menores no reembolso. |
+| H6. Prazo e canal de solicitação variam entre territórios e acentuam a carga do reembolso. | Comparação de prazo e canal por território. | Sem diferença entre territórios. |
 
 ## 8. Dados necessários e viabilidade
 
 | Conjunto ou fonte de dados | Variáveis principais | Formato | Acesso / responsável | Qualidade esperada |
 |---|---|---|---|---|
-|Mapa das Organizações da Sociedade Civil (IPEA). |Nome da instituição, CNPJ, localização (cidade/estado), finalidade/área de atuação, status de regularidade e natureza jurídica. |CSV / JSON |Público / Instituto de Pesquisa Econômica Aplicada (IPEA). |Média/Alta (sujeita a eventuais desatualizações no status ativo e dados de contato das entidades locais). |
-|Sistema Nacional de Informações sobre a Gestão dos Resíduos Sólidos (SINIR/MMA). |Volume de resíduos sólidos declarados, categorias de materiais, município gerador, destinação final e manifestos de transporte de resíduos (MTR). |CSV / Painéis Abertos |Público / Ministério do Meio Ambiente e Mudança do Clima. |Alta (base de consolidação oficial de declarações de estados e municípios sobre gestão ambiental). |
-|Painel de Dados do Cadastro Único (SAGICAD / Ministério do Desenvolvimento e Assistência Social). |Número de famílias em situação de pobreza ou extrema pobreza, renda per capita, localização geográfica (município/bairro) e perfil de vulnerabilidade socioterritorial. |CSV / API / Dashboards |Público / Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome (MDS). |Alta (base demográfica e socioeconômica oficial primária de planejamento de assistência social do Governo Federal). |
+| `stg_prata.fato_reembolso_itens_pagos` | Datas, prazos, situação da guia, valores, tipo e serviço do item, quantidade, UF e cidade, prestador, chaves das dimensões. | Tabela relacional (SQL Trino/Presto) | Interno e restrito / área de dados e DPO | Alta, com ressalvas (datas inválidas, repetição por guia, nulos). |
+| `stg_prata.dim_canal_solicitacao`, `dim_especialidade_atendimento`, `dim_motivo_decisao_reembolso`, `dim_tipo_reembolso`, `prata.dim_conveniada`, `prata.dim_plano` | Descrições categóricas. | Tabelas relacionais | Interno / área de dados | Alta, com possível falta de correspondência. |
+| **Cadastro da rede credenciada** (a obter) | Prestador (tipo PJ/PF), município, UF, especialidade, serviços, situação do credenciamento. | Tabela relacional / planilha | Interno / área de rede | A avaliar. **É essencial** para medir lacuna e subutilização. |
+| **Utilização e custo na rede credenciada** (a obter) | Volume e custo médio por serviço, território e período (contas médicas, sem identificação de beneficiário). | Tabela agregada | Interno / financeiro e atuária | A avaliar. **É essencial** para custo evitável e para a relação rede × reembolso. |
+| **Base de beneficiários agregada** (a obter) | Contagem de beneficiários por município de residência, plano e faixa etária. | Tabela agregada | Interno / cadastro | A avaliar. Permite normalizar por beneficiário. |
+| Dados públicos de apoio (opcional) | IBGE: população e região por município. | CSV / API | Público | Média/Alta |
 
 ### 8.1 Avaliação inicial dos dados
 
-- **Disponibilidade:** Todos os conjuntos de dados propostos estão em domínio público e são disponibilizados ativamente na internet por órgãos federais brasileiros (IPEA, MMA e MDS) por meio de portais de transparência e dados abertos (API e arquivos estruturados).
-- **Volume e período coberto:** O SINIR conta com dados históricos da gestão de mais de 80,96 milhões de toneladas de resíduos e milhões de manifestos no cenário nacional. O IPEA mapeia centenas de milhares de Organizações da Sociedade Civil. O Painel do Cadastro Único cobre dados demográficos agregados de milhões de famílias brasileiras em situação de vulnerabilidade em todos os municípios do país, com atualização contínua.
-- **Dados ausentes, duplicados ou inconsistentes previstos:** No Mapa das OSCs pode haver atraso na atualização quando instituições encerram suas atividades informalmente. No SINIR, existe a ocorrência de subnotificação oriunda de municípios que falham no envio das declarações. Nas bases do CadÚnico, pode ocorrer defasagem local caso os municípios atrasem os recadastramentos periódicos das famílias.
-- **Necessidade de integração entre fontes:** Será necessário integrar essas informações geográficas para gerar um verdadeiro "mapa de calor" da solidariedade. Ao cruzar as localizações e categorias de atuação das instituições do IPEA  com as regiões de alta vulnerabilidade mapeadas pelo Cadastro Único, a plataforma poderá focar seus esforços logísticos e direcionar os doadores  para as áreas com a maior urgência social, alinhando-se diretamente à perspectiva da economia da solidariedade e ao fomento da diminuição da pobreza estrutural e do descarte inteligente.
-- **Restrições legais, contratuais ou institucionais:** Tratando-se de bases de governo abertas, o principal rigor exigido na manipulação dos dados é o estrito cumprimento da Lei Geral de Proteção de Dados Pessoais (LGPD), especialmente no que tange aos microdados socioeconômicos para evitar qualquer chance de reidentificação de pessoas em vulnerabilidade.
+- **Disponibilidade:** a base de reembolso existe e é acessível. As bases de rede, custo na rede e beneficiários agregados precisam ser solicitadas, e sem elas só é possível descrever o reembolso (perguntas 1, 2, 3, 5 e 8 em parte), não medir lacuna e custo evitável (4 e 6).
+- **Granularidade:** **item pago**. Valores da guia se repetem entre itens, e a análise no nível da guia exige agregação prévia.
+- **Território:** a cidade e a UF são as do **atendimento**. Para o acesso, o ideal é também o município de **residência** do beneficiário, em nível agregado.
+- **Volume e período:** a definir (sugestão: 24 a 36 meses), com comparação antes e depois das ações.
+- **Dados ausentes, duplicados ou inconsistentes:**
+  - `DTAFINALIZACAO` vem como texto. Os valores `''`, `0`, `00000000`, `19000101` e `1900-01-01` viram nulos, os formatos `AAAAMMDD` e `AAAA-MM-DD[ hh:mm:ss]` são convertidos e os demais viram nulos.
+  - Nomes de cidade e de prestador podem ter grafias diferentes. É preciso padronizar (por exemplo, pelo código IBGE) e deduplicar prestadores.
+  - Descrições nulas após o `LEFT JOIN` viram "Não informado".
+  - Guias sem finalização são analisadas à parte.
+- **Integração entre fontes:** reembolso e rede por município (código IBGE), especialidade e serviço, com tabela de equivalência de procedimentos. Chaves `Sk*` para as dimensões.
+- **Restrições legais, contratuais ou institucionais:** a base contém dados pessoais e **dados pessoais sensíveis de saúde** (LGPD, arts. 5º, II, 11 e 12). Como controladora, a operadora precisa de finalidade e base legal documentadas e parecer do DPO. Também devem ser respeitadas as normas da ANS, inclusive a RN 566/2022, e eventuais cláusulas contratuais com a rede.
+
+**Classificação LGPD e tratamento das colunas**
+
+| Coluna(s) | Classificação | Tratamento |
+|---|---|---|
+| `NMEBENEFICIARIO` | Identificador direto | **Excluir** da base de análise e do painel. |
+| `NroCIBPaciente` | Identificador direto | **Pseudonimizar** (HMAC com chave em cofre). Usar só como chave de agrupamento. |
+| `NROGSP`, `NROGSPVINCULADA` | Identificador indireto | **Pseudonimizar**. `TIPOGSPVINCULADA` pode ser mantido. |
+| `NROCPFCNPJCONTRATADOEXECUTANTE`, `NMECONTRATADOEXECUTANTE` | Identificador de prestador (PJ ou PF) | **Pseudonimizar** o documento e **excluir** o nome na base de modelagem. Manter o tipo de prestador (PJ/PF). Ver regra de reidentificação autorizada abaixo. |
+| `NroInsConselho`, `CodCBO` | Identificador profissional | `NroInsConselho` pseudonimizado. `CodCBO` mantido de forma agregada. |
+| `NroPrtAnestesico`, `NmeTermo` | Identificador indireto / possível texto livre | **Excluir** o primeiro e revisar o segundo. |
+| `CID` | **Dado sensível de saúde** | Usar apenas o grupo (3 caracteres), com **supressão** de categorias raras (< 11 casos) e de CIDs de maior estigma em saídas. |
+| `DESSERVICOPAGO`, `NMETPOITEM`, `NROSERVICOPAGO` | Dado de saúde (procedimento) | Usar no nível de procedimento ou de grupo, com supressão de pequenos grupos. |
+| `DTASOLICITACAOGUIA`, `DTAFINALIZACAO`, `DTA_ATENDIMENTO` | Identificador indireto | Usar nos cálculos e **generalizar para mês/ano** nas saídas. |
+| `UF`, `UFATENDIMENTO`, `CIDADEUFATENDIMENTO` | Identificador indireto | Manter UF. Município em saídas somente com grupo mínimo (< 11 casos vão para "Outros do estado"). |
+| `VLR*`, `QTDSERVICO`, `PRAZOFINALIZACAO`, `FINALIZADOPRAZO30DIAS`, `SITUACAOGUIA` | Não identificável isoladamente | Manter, sem expor valores individuais com atributos identificadores. |
+| `Sk*`, `canal_solicitacao`, `especialidade`, `motivo_decisao`, `conveniada`, `plano`, `tipo_reembolso` | Atributos categóricos | Manter. `especialidade` e `motivo_decisao` podem revelar saúde e têm o mesmo cuidado do `CID`. |
+
+**Prestadores (pessoa jurídica × pessoa física):** a análise por prestador (pergunta 3) é central, mas o CPF e o nome de uma pessoa física são dados pessoais. Regra proposta: a análise é feita com o prestador pseudonimizado. A **identificação para fins de credenciamento ou negociação** é feita pela área de rede, em ambiente restrito, por solicitação registrada ao DPO/TI, e **só para prestadores PJ ou para PF com finalidade e base legal documentadas**. Os rankings divulgados fora da área de rede mostram apenas tokens, nunca nomes.
 
 ### 8.2 Privacidade, ética e segurança
 
-- [X] A equipe verificou se há dados pessoais ou sensíveis.
-- [X] A coleta e o uso dos dados possuem finalidade legítima e explícita.
-- [X] O acesso será limitado às pessoas autorizadas.
-- [X] Dados pessoais serão minimizados, anonimizados ou pseudonimizados quando necessário.
-- [X] Possíveis vieses e impactos sobre grupos serão analisados.
-- [X] A divulgação dos resultados evitará reidentificação ou exposição indevida.
+- [ ] A equipe verificou se há dados pessoais ou sensíveis (sim: saúde e identificadores).
+- [ ] A coleta e o uso dos dados possuem finalidade legítima e explícita (gestão da rede e do custo assistencial) e base legal definida pelo DPO.
+- [ ] O acesso será limitado às pessoas autorizadas.
+- [ ] Dados pessoais serão minimizados, anonimizados ou pseudonimizados quando necessário.
+- [ ] Possíveis vieses e impactos sobre grupos serão analisados.
+- [ ] A divulgação dos resultados evitará reidentificação ou exposição indevida.
 
 **Cuidados específicos deste projeto:**
 
-Armazenamento de senhas obrigatoriamente criptografadas em formato hash (senha_hash) e controle estrito de acessos por perfil.
-Registro e rastreabilidade do consentimento explícito aos termos da LGPD (aceite_lgpd e data_aceite_lgpd).
-Preservação da privacidade dos doadores, mantendo o endereço exato e a localização ocultos para consultas públicas e exibindo-os somente após o estabelecimento de um agendamento formal.
+1. **Dados ficam na operadora:** análise em ambiente interno e controlado, sem envio a serviços externos ou ferramentas de IA de terceiros.
+2. **Minimização na origem:** a extração para análise não seleciona nomes, CPF/CNPJ, números de guia, carteira, conselho ou protocolo anestésico em claro. A pseudonimização (HMAC-SHA256) ocorre na própria consulta, e a chave fica com o DPO/TI.
+3. **Separação de ambientes:** a tabela de correspondência (token ↔ original) fica fora do ambiente de análise e só é consultada nos termos da regra de prestadores acima.
+4. **Anonimização nas saídas:** supressão de células com menos de 11 registros, generalização de datas e controle de cruzamentos (CID × município × data × valor). Municípios pequenos são agrupados.
+5. **Nível agregado, não individual:** os resultados são por território, serviço, especialidade e prestador. Não há modelo ou ranking de beneficiários.
+6. **Direito ao reembolso preservado:** as ações visam ampliar e orientar a rede. É vedado usar os resultados para **dificultar, atrasar ou negar** reembolsos devidos, e isso deve constar do termo de uso do painel.
+7. **Uso restrito:** os resultados não podem servir a seleção de risco, precificação individual ou restrição de cobertura.
+8. **Prestadores:** os rankings têm finalidade de gestão da rede e não de penalização. Devem passar por revisão da regulação e do jurídico antes de qualquer ação de credenciamento ou descredenciamento.
+9. **Revisão humana:** os modelos apoiam, e a decisão é da gestão (LGPD, art. 20).
+10. **Governança:** ROPA, RIPD, prazo de retenção, registro de acessos e plano de incidentes. No Power BI, RLS e somente visões agregadas.
+11. **Repositório e documento:** sem dados reais, *prints* com informações pessoais ou credenciais.
+
 ## 9. Escopo do projeto
 
 | Dentro do escopo | Fora do escopo |
 |---|---|
-|1. Especificação, modelagem e prototipagem da plataforma web responsiva (PHP, MySQL, Bootstrap) para intermediação entre doadores e instituições.|1. Desenvolvimento de aplicativos móveis nativos (Android/iOS) ou envio de notificações push para smartphones.|
-|2. Funcionalidades de cadastro e gestão de usuários (doadores, ONGs, administradores) e fluxo de validação cadastral das instituições.|2. Integração automatizada com gateway bancário/API para processamento financeiro de Pix (mantido apenas o registro manual/chave Pix).|
-|3. Mapeamento de doações de bens materiais e cadastro de necessidades institucionais por categoria e prioridade.	|3. Módulo de logística de transporte próprio ou integração automatizada de frete com empresas terceirizadas/transportadoras.|
+| 1. Extração, tratamento e pseudonimização dos dados internos de reembolso. | 1. Decisão automatizada de deferimento ou indeferimento de reembolso. |
+| 2. Diagnóstico por UF, município, especialidade, procedimento e prestador. | 2. Identificação ou monitoramento de beneficiários individuais. |
+| 3. Indicadores de lacuna de rede, subutilização e custo evitável (se as bases de rede e de custo forem obtidas). | 3. Redução de reembolso por meio de barreiras, atrasos ou negativas. |
+| 4. Priorização de ações (credenciamento, negociação, orientação e fluxo) e painel de acompanhamento. | 4. Execução do credenciamento, de contratos ou de negociações. |
+| 5. Modelos de apoio (previsão de demanda de reembolso e anomalias) e *model card*. | 5. Interpretação jurídica definitiva da RN 566/2022 e implantação em produção. |
+| 6. Documentação de governança (dicionário, classificação LGPD, RIPD). | 6. Publicação de dados brutos ou de amostras reidentificáveis. |
 
-**Restrições conhecidas:** tempo, acesso a dados, ferramentas, infraestrutura, conhecimento técnico ou normas.
+**Restrições conhecidas:**
 
-Prazo acadêmico: Cronograma delimitado pelo período letivo da disciplina e elaboração do projeto.
-
-Privacidade e LGPD: Obrigatoriedade de aplicar hash em credenciais, ocultar endereços exatos antes do agendamento formal e manipular dados socioeconômicos externos apenas de forma agregada para impedir a re-identificação de pessoas.
-
-Ambiente de desenvolvimento: Solução desenvolvida como protótipo evolutivo funcional, sem implantação em escala de produção nem validação com grande massa de usuários reais.
-
-Infraestrutura tecnológica: Ausência de serviços de geolocalização e rotroteamento avançados baseados em cálculo direto de latitude/longitude.
+- Prazo acadêmico definido pelo período letivo e equipe de uma pessoa.
+- Acesso dependente de autorização formal do DPO e da gestão.
+- Dependência das bases de rede, de custo na rede e de beneficiários agregados.
+- Qualidade dos dados (datas inválidas, repetição por guia, grafia de cidade e prestador).
+- Privacidade: pseudonimização obrigatória e supressão de pequenos grupos.
+- Necessidade de validar regras de negócio e a norma com regulação e jurídico.
 
 ## 10. Resultados e entregáveis previstos
 
 | Entregável | Descrição | Formato | Responsável | Critério de aceite |
 |---|---|---|---|---|
-| Base tratada |Consolidação e limpeza dos dados transacionais da aplicação , integrados a referências geográficas e socioeconômicas públicas (IPEA e Cadastro Único/MDS). |Scripts SQL / Tabelas Relacionais . |Júlio César / Eduardo Salgueiro. |Ausência de registros órfãos, preservação da integridade referencial via chaves FK/PK e garantia de anonimização conforme a LGPD. |
-| Análise exploratória |Estudo do grau de alinhamento entre as doações ofertadas e as necessidades urgentes das ONGs, funil de conversão das etapas de doação e tempo médio de repasse. |Relatório Analítico. |Júlio César / Eduardo Salgueiro. |Identificação clara dos principais gargalos logísticos e mapeamento do perfil de demandas do Terceiro Setor. |
-| Visualizações / painel |Interfaces de monitoramento com indicadores de doações disponíveis, processos em andamento, alertas de agendamento e histórico por protocolo para doadores, ONGs e administradores. |Interfaces Web Responsivas (PHP / Bootstrap). |Júlio César / Eduardo Salgueiro. |Exibição em tempo real das métricas operacionais e navegação fluida nos três perfis de acesso da plataforma. |
-| Relatório ou apresentação |Documentação técnica e científica completa, contemplando levantamento de requisitos, diagramas de casos de uso (UML), DER, dicionário de dados e protótipos das interfaces. |Documento escrito (TCC) em PDF. |Júlio César / Eduardo Salgueiro. |Aprovação na disciplina e conformidade com a estrutura acadêmica da ABNT. |
-| Outro |Aplicação web responsiva para intermediação de doações, com cadastro de donativos/necessidades, chat interno, agendamento de coletas e confirmações rastreáveis. |Código-fonte web (PHP, HTML, CSS, JS, MySQL na AWS). |Júlio César / Eduardo Salgueiro. |Funcionamento estável dos fluxos de ponta a ponta. |
+| Base tratada | Consulta SQL versionada, com tratamento de datas, padronização de município e prestador, enriquecimento e pseudonimização. | Script SQL e tabela analítica | Júlio César | Sem identificadores diretos, chaves validadas e aprovação do DPO. |
+| Dicionário de dados e classificação LGPD | Descrição e tratamento de cada coluna e regra de classificação do reembolso. | Documento / planilha | Júlio César | 100% das colunas classificadas. |
+| Diagnóstico territorial e de serviços | Concentração do reembolso por UF, município, especialidade, procedimento e prestador. | Relatório / notebook | Júlio César | Perguntas 1 a 3 e 5 respondidas com agregados seguros. |
+| Análise de lacuna de rede e custo evitável | Cruzamento com a rede e o custo na rede, com premissas documentadas. | Relatório / planilha | Júlio César | Perguntas 4 e 6 respondidas e validadas com rede e financeiro. |
+| Portfólio de ações priorizado | Iniciativas por território, especialidade e prestador, com impacto estimado, esforço e indicador. | Documento / matriz | Júlio César | Aprovado pela gestão. |
+| Painel de acompanhamento | Indicadores de reembolso, uso da rede e custo, por território, com comparação antes e depois. | Power BI | Júlio César | Sem dados pessoais, com RLS e validado com a gestão. |
+| Modelos de apoio | Previsão de demanda de reembolso e anomalias por segmento. | Notebooks e artefatos | Júlio César | Superar a linha de base em teste temporal. |
+| Relatório final | Método, resultados, limitações, *model card* e riscos éticos. | PDF / apresentação | Júlio César | Aprovação do professor e da gestão. |
 
 ## 11. Critérios de sucesso
 
-Defina como a equipe saberá se o projeto alcançou seus objetivos.
-
 | Critério | Indicador ou evidência | Meta | Forma de verificação |
 |---|---|---|---|
-| Relevância para o problema |Taxa de atendimento das necessidades urgentes e de alta prioridade cadastradas pelas instituições de caridade. |Elevar a cobertura e o alinhamento entre as ofertas dos doadores e os itens prioritários solicitados pelas ONGs. |Análise cruzada entre as tabelas donativos e necessidades_instituicao no banco relacional helping_hands. |
-| Qualidade dos dados |ntegridade referencial do banco de dados MySQL, senhas armazenadas em hash e privacidade conforme a LGPD. |100% das chaves (PK/FK) validadas e ausência de dados pessoais sensíveis expostos publicamente. |Execução de scripts de auditoria SQL e verificação das rotinas de segurança e privacidade do sistema. |
-| Qualidade da análise |Mensuração do tempo médio (lead time) do ciclo de doação e identificação dos pontos de desistência no funil de intermediação. |Mapear precisamente o tempo total do ciclo e determinar em qual etapa (interesse, agendamento ou entrega) ocorrem os cancelamentos. |Relatórios analíticos e consultas SQL baseadas nos registros das tabelas agendamentos_doacao e historico_acoes. |
-| Utilidade para o público-alvo |Conclusão do fluxo de intermediação de doações de ponta a ponta (publicação, chat, agendamento, entrega e recebimento). |Garantir usabilidade fluida e funcionamento correto nos três perfis de acesso (doador, instituição e administrador). |Testes funcionais de navegação e validação dos protótipos de interfaces web responsivas da plataforma
-. |
-| Comunicação dos resultados |Rigor técnico na documentação (levantamento de requisitos, diagramas UML, DER e dicionário de dados) e clareza na apresentação. |Aprovação na disciplina e conformidade técnica integral com a estrutura acadêmica solicitada. |Avaliação do documento final do projeto e validação pela banca/orientador
-. |
+| Relevância para o problema | Perguntas respondidas e aceitas pela gestão. | Perguntas 1 a 7 respondidas e validadas. | Reunião de validação e ata. |
+| Ações acionáveis | Iniciativas priorizadas com território, especialidade, responsável e indicador. | Ao menos 5 iniciativas aprovadas pela gestão. | Revisão com rede, reembolso e financeiro. |
+| Efeito esperado (pós-projeto) | Redução do reembolso evitável, aumento do uso da rede e queda do custo assistencial da medida reparadora nos territórios-alvo. | Metas definidas com a gestão (por exemplo, queda percentual do reembolso evitável em 12 meses). | Série mensal antes e depois, com grupo de comparação. |
+| Qualidade dos dados | Nulos, duplicidades, datas inválidas, padronização de município e prestador e integridade das chaves. | Datas inválidas tratadas em 100% dos casos. Correspondência das chaves acima do acordado (sugestão: 98%). | Relatório de perfilamento. |
+| Qualidade dos modelos | Desempenho em teste temporal. | Ganho mínimo sobre a linha de base, definido após a exploração. | Validação temporal e análise de erro por segmento. |
+| Conformidade com a LGPD | Identificadores nos artefatos e células pequenas. | 0 identificadores diretos e 0 células com menos de 11 registros. | Auditoria do DPO e varredura automática. |
+| Conformidade com o uso | Ausência de uso dos resultados para dificultar reembolsos devidos. | 100% das ações revisadas pela regulação. | Registro de revisão. |
 
 ## 12. Plano inicial de trabalho
 
 | Etapa | Atividades principais | Responsável(is) | Prazo | Dependências |
 |---|---|---|---|---|
-| 1. Definição |Mapeamento do problema central, delimitação do escopo, levantamento dos requisitos do sistema e estruturação das perguntas de negócio e hipóteses. |Júlio César / Eduardo Salgueiro. |Semanas 1 e 2. |Nenhum (etapa inicial). |
-| 2. Obtenção dos dados |Mapeamento e extração dos dados transacionais do banco MySQL (helping_hands), acompanhados da captação de dados públicos abertos do IPEA, SINIR/MMA e Cadastro Único/MDS. |Júlio César / Eduardo Salgueiro. |Semanas 3 e 4. |Definição das perguntas de negócio e da estrutura das tabelas. |
-| 3. Preparação dos dados |Limpeza de registros inconsistentes, padronização de endereços, anonimização de dados sensíveis conforme a LGPD e integração entre fontes via chaves relacionais. |Júlio César / Eduardo Salgueiro. |Semanas 5 e 6. |Disponibilização dos conjuntos de dados brutos. |
-| 4. Análise / modelagem |Análise exploratória do cruzamento entre oferta e demanda urgente, avaliação do funil de conversão das doações, cálculo do tempo médio (lead time) e mapeamento territorial. |Júlio César / Eduardo Salgueiro. |Semanas 7 e 8. |Base de dados integrada, tratada e sanitizada. |
-| 5. Validação |Verificação dos resultados analíticos frente aos critérios de sucesso, testes funcionais de navegação no protótipo web e auditoria das regras de integridade do banco de dados. |Júlio César / Eduardo Salgueiro. |Semanas 9 e 10. |Conclusão das análises e disponibilização das interfaces do protótipo. |
-| 6. Comunicação |Redação do relatório técnico e acadêmico (TCC), estruturação das visualizações gráficas e preparação da apresentação para a banca examinadora. |Júlio César / Eduardo Salgueiro. |Semanas 11 e 12. |Validação final dos dados e consolidação dos resultados
-. |
+| 1. Definição | Alinhar problema, escopo, perguntas e hipóteses. Validar o enquadramento da RN 566/2022 e a base legal. | Júlio César | Semanas 1 e 2 | Nenhuma |
+| 2. Obtenção dos dados | Adaptar a consulta (minimização e pseudonimização). Solicitar cadastro da rede, custo na rede e beneficiários agregados. | Júlio César | Semanas 3 e 4 | Etapa 1, DPO e áreas donas dos dados |
+| 3. Preparação dos dados | Perfilamento, tratamento de nulos e datas, padronização de município (IBGE) e prestador, classificação do reembolso. | Júlio César | Semanas 5 e 6 | Etapa 2 |
+| 4. Diagnóstico | Concentração por território, serviço, especialidade e prestador. Lacuna de rede e custo evitável. | Júlio César | Semanas 7 e 8 | Etapa 3 |
+| 5. Priorização e modelos | Portfólio de ações (impacto × esforço) e modelos de apoio. | Júlio César | Semanas 9 e 10 | Etapa 4 |
+| 6. Validação | Revisão com rede, reembolso, financeiro e regulação. Validação temporal, viés e auditoria de privacidade. | Júlio César | Semana 11 | Etapa 5 |
+| 7. Comunicação | Painel, *model card*, relatório e apresentação. | Júlio César | Semana 12 | Etapa 6 |
 
 ## 13. Riscos do projeto
 
 | Risco | Probabilidade | Impacto | Estratégia de resposta | Responsável |
 |---|---|---|---|---|
-|Baixo volume de dados transacionais reais devido ao projeto estar em fase de prototipagem/desenvolvimento. | Alta | Alto |Utilizar dados simulados/sintéticos coerentes com o dicionário do banco helping_hands e enriquecer as análises com dados públicos reais (IPEA, SINIR). |Júlio César / Eduardo Salgueiro. |
-| Inconsistência ou desatualização nas bases públicas (ex.: ONGs inativas mapeadas no IPEA ou subnotificação regional no SINIR). | Média | Médio |Implementar rotinas de higienização no ETL, aplicando filtros de validação cadastral e descartando registros com lacunas críticas de localização ou CNPJ. |Júlio César / Eduardo Salgueiro. |
-|Exposição indevida de dados pessoais de doadores (CPF, telefone, endereço) em desconformidade com a LGPD. | Baixa | Alto |Aplicar hash em credenciais, restringir a exibição de endereços exatos nas telas públicas e manipular dados socioeconômicos socioambientais de forma agregada. |Júlio César / Eduardo Salgueiro. |
+| Reidentificação ou vazamento de dados de saúde e de prestadores pessoa física. | Média | Alto | Minimização, pseudonimização na origem, supressão, regra de reidentificação autorizada e RIPD. | Júlio César / DPO |
+| Bases de rede, custo na rede e beneficiários indisponíveis ou de baixa qualidade. | Alta | Alto | Solicitar cedo, usar proxies (por exemplo, serviços e prestadores com reembolso recorrente) e declarar a limitação. | Júlio César / Rede |
+| Interpretação incorreta da RN 566/2022 ou da classificação do reembolso. | Média | Alto | Validar com regulação e jurídico antes de apresentar valores. | Júlio César / Regulação |
+| Atribuir a lacuna de rede um reembolso que decorre de livre escolha ou de outro motivo. | Média | Médio | Classificar o reembolso por tipo e motivo e apresentar o resultado por categoria. | Júlio César |
+| Uso dos resultados para dificultar reembolsos devidos ou para penalizar prestadores. | Baixa | Alto | Termo de uso, revisão da regulação e foco em ações sobre a rede. | Gestão / Regulação |
+| Qualidade dos dados (datas inválidas, grafia de município e prestador, guias em aberto). | Alta | Médio | Regras documentadas, padronização por código IBGE e deduplicação de prestadores. | Júlio César |
+| Dupla contagem por causa da granularidade de item. | Média | Alto | Agregar por guia antes de somar e reconciliar. | Júlio César |
+| Correlação interpretada como causa (reembolso × rede). | Média | Médio | Tratar achados como hipóteses, validar com as áreas e medir o efeito antes e depois. | Júlio César |
+| Equipe de uma pessoa e prazo curto. | Média | Médio | Priorizar o diagnóstico e as ações e deixar os modelos como etapa opcional. | Júlio César |
 
 ## 14. Organização da equipe
 
 | Integrante | Papel principal | Responsabilidades | Apoio necessário |
 |---|---|---|---|
-|C de Aguiar Nunes. |Desenvolvedor e engenheiro de software. |Levantamento de requisitos, modelagem relacional do banco de dados MySQL, prototipagem e implementação das interfaces web responsivas e documentação técnica do tcc. |Orientação do professor em modelagem estatística, validação das regras de negócio e Suporte em testes de usabilidade de interface |
-|Eduardo Salgueiro Evangelista |Desenvolvedor e engenheiro de software. |Levantamento de requisitos, modelagem relacional do banco de dados MySQL, prototipagem e implementação das interfaces web responsivas e documentação técnica do tcc. |Orientação do professor em modelagem estatística, validação das regras de negócio e Suporte em testes de usabilidade de interface. |
+| Júlio César de Aguiar Nunes | Engenharia de dados, governança, análise e modelagem | Consulta SQL, pseudonimização, dicionário, qualidade, LGPD, diagnóstico, priorização, modelos, painel e documentação. | DPO, TI, áreas de rede, reembolso, financeiro e regulação, e orientação. |
 
 ## 15. Validação da definição do projeto
 
 Antes da entrega, confirme:
 
-- [X] O problema é real, relevante e delimitado.
-- [X] O público-alvo e as partes interessadas estão identificados.
-- [X] O objetivo geral e os objetivos específicos são coerentes.
-- [X] As perguntas de negócio orientam decisões concretas.
-- [X] Há dados potencialmente disponíveis para responder às perguntas.
-- [X] O escopo é compatível com o prazo e os recursos.
-- [X] Os critérios de sucesso são mensuráveis.
-- [X] Riscos, privacidade, ética e segurança foram considerados.
-- [X] Funções e responsabilidades foram distribuídas.
+- [ ] O problema é real, relevante e delimitado.
+- [ ] O público-alvo e as partes interessadas estão identificados.
+- [ ] O objetivo geral e os objetivos específicos são coerentes.
+- [ ] As perguntas de negócio orientam decisões concretas.
+- [ ] Há dados disponíveis para responder às perguntas (inclusive rede e custo na rede).
+- [ ] O escopo é compatível com o prazo e os recursos.
+- [ ] Os critérios de sucesso são mensuráveis.
+- [ ] Riscos, privacidade, ética e segurança foram considerados.
+- [ ] O enquadramento da RN 566/2022 foi validado pela regulação.
+- [ ] Nenhum dado pessoal real consta neste documento ou nos anexos.
 
 ## 16. Aprovação e registro de ajustes
 
 | Responsável | Validação / observação | Data |
 |---|---|---|
-| Representante da equipe(Júlio César / Eduardo Salgueiro) |Definição inicial do projeto concluída e alinhada ao escopo do TCC. |17/09/2026 |
-| Professor(a) / orientador(a)(Gabriel) |Proposta aprovada para desenvolvimento e acompanhamento da disciplina |17/09/2026 |
+| Representante da equipe (Júlio César) | | |
+| Professor(a) / orientador(a) (Gabriel) | | |
+| Encarregado de dados (DPO) | Parecer sobre base legal, minimização e pseudonimização. | |
+| Regulação / jurídico | Validação do enquadramento da RN 566/2022. | |
 
 ### Ajustes solicitados após a apresentação inicial
 
-________________________________________________________________________________
+| Data | Ajuste solicitado | Responsável | Situação |
+|---|---|---|---|
+| | | | |
 
-________________________________________________________________________________
+## Anexo A. Referência técnica da consulta de extração
 
+| Etapa | Função |
+|---|---|
+| `BaseTratamento` | Lê `stg_prata.fato_reembolso_itens_pagos` e converte `DTAFINALIZACAO` para texto uma única vez (`TRIM(CAST(... AS VARCHAR))`). |
+| `BaseDataTratada` | Converte para `DATE`. Nulo, `''`, `0`, `00000000`, `19000101` e `1900-01-01` viram nulos. `AAAAMMDD` usa `DATE_PARSE` com `TRY`. `AAAA-MM-DD` (com ou sem hora) usa `TRY_CAST` dos 10 primeiros caracteres. Outros formatos viram nulos. |
+| `BaseReembolso` | `LEFT JOIN` com as dimensões de canal, especialidade, motivo, conveniada, plano e tipo de reembolso. |
+| Resultado final | `SELECT DISTINCT` no nível de item pago. `Guias` vale 1 se `NROGSP` não for nulo, senão 0. `Valor_pagos` é `VLRPAGOITEM`. `Data_finalizacao` repete `DTAFINALIZACAO` (alias mantido para o Power Query). |
+
+**Ajustes obrigatórios para a versão de análise (LGPD):**
+
+1. Remover do `SELECT` final `NMEBENEFICIARIO` e, na base de modelagem, `NMECONTRATADOEXECUTANTE`.
+2. Tokenizar (HMAC com chave em cofre) `NROGSP`, `NROGSPVINCULADA`, `NroCIBPaciente`, `NROCPFCNPJCONTRATADOEXECUTANTE` e `NroInsConselho`.
+3. Remover `NroPrtAnestesico` e revisar `NmeTermo`.
+4. Reduzir `CID` ao grupo (3 caracteres) e generalizar datas para mês/ano nas saídas agregadas.
+5. Calcular `Guias` e `Valor_pagos` antes da tokenização, para não quebrar as medidas do Power BI.
+6. Não somar `VLRSOLICITADOGUIA` e `VLRTOTALPAGOGUIA` no nível de item, pois se repetem entre itens da mesma guia.
+
+**Ajustes adicionais para o objetivo de rede e custo (V04):**
+
+7. Padronizar município e UF de atendimento (preferencialmente por código IBGE) e deduplicar prestadores antes de qualquer ranking.
+8. Derivar a classificação do reembolso (medida reparadora, livre escolha e outros) a partir de `SkTipoReembolso`, `NMEFORMAREEMBOLSO` e `motivo_decisao`, conforme regra validada pela regulação.
+9. Integrar, por município e especialidade, o cadastro da rede credenciada e o custo na rede, em nível agregado e sem dados de beneficiários.
