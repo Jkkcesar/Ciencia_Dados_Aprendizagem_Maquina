@@ -7,10 +7,10 @@ Ciência de Dados e Aprendizado de Máquina · Sistemas de Informação · 2026.
 
 ## Identificação
 
-- Estudante ou equipe: **Eduardo Salgueiro - Julio Cesar**
+- Estudante ou equipe: **Eduardo Salgueiro**
 - Turma: **Sistemas de Informação - 2026.2**
 - Data de realização: **30/10/2026**
-- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro - Julio Cesar**
+- Integrantes e contribuições (se em equipe): **Eduardo Salgueiro**
 
 ## Contexto
 
@@ -74,16 +74,16 @@ Previsões não são certezas. Priorize apoio e revisão humana, sem punições 
 
 | Tempo | Conteúdo | Responsável |
 | --- | --- | --- |
-| 1 minuto | Problema e dados | **Julio Cesar (Contextualização, perguntas de negócio e viabilidade dos dados)** |
-| 2 minutos | Método e resultados | **Eduardo Salgueiro (Explicação da Árvore de Decisão, métricas de Recall e matriz de confusão)** |
-| 1 minuto | Limitações | **Julio Cesar (Viés de correlação/causalidade e riscos com grupos vulneráveis)** |
-| 1 minuto | Recomendações de apoio | **Eduardo Salgueiro (Protocolo de intervenção humana e ética na aplicação)** |
+| 1 minuto | Problema e dados | **(Contextualização, perguntas de negócio e viabilidade dos dados)** |
+| 2 minutos | Método e resultados | **(Explicação da Árvore de Decisão, métricas de Recall e matriz de confusão)** |
+| 1 minuto | Limitações | **(Viés de correlação/causalidade e riscos com grupos vulneráveis)** |
+| 1 minuto | Recomendações de apoio | **(Protocolo de intervenção humana e ética na aplicação)** |
 
 ## Contribuições
 
 | Integrante | Contribuição verificável |
 | --- | --- |
 | **Eduardo Salgueiro** | **Construção do pipeline de dados, modelagem da Árvore de Decisão, extração das métricas (Recall) e planejamento do protocolo de apoio.** |
-| **Julio Cesar** | **Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
+| | **Levantamento das perguntas de negócio, análise crítica de vieses e LGPD, delimitação das regras de negócio e estruturação das limitações.** |
 
 [Voltar ao início](README.md).
